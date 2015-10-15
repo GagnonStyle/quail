@@ -67,20 +67,12 @@ app.use(testmw);
 //////////////////////////////////////////////////////////////////////
 var team = require('./lib/team.js');
 
-app.get('/', (req, res) => {
-  var result = team.all();
-  if (!result.success) {
-    notFound404(req, res);
+app.get('/team', (req, res) => {
+  if (req.query.user){
+    var result = team.one(req.query.user);
   } else {
-    res.render('team', {
-      members: result.data,
-      pageTestScript: '/qa/tests-team.js'
-    });
+    var result = team.all();
   }
-});
-
-app.get('/team/:member', (req, res) => {
-  var result = team.one(req.params.member);
   if (!result.success) {
     notFound404(req, res);
   } else {

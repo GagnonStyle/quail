@@ -8,14 +8,20 @@
 		{{#if showTests}}
 			<link rel="stylesheet" href="/vendor/mocha.css">
 		{{/if}}
+		<link rel="stylesheet" href="/stylesheets/main.css" type="text/css">
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
 		<!-- We add the jQuery library because we will be using it
 		     to manipulate HTML in the browser. -->
 		<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
 	</head>
 	<body>
-		{{{body}}}
-
+	  <div class="header">
+      U-Food
+	  </div>
+	  <div class="content">
+		  {{{body}}}
+    </div>
 		{{#if showTests}}
 			<div id="mocha"></div>
 			<script src="/vendor/mocha.js"></script>

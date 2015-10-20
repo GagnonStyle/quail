@@ -1,9 +1,8 @@
-<h1>Team Portfolio</h1>
+<h1 class="title">The U-Food Team</h1>
 
-<h2>Team Members</h2>
-<h2>Total: ({{members.length}})</h2>
-<ul>
-  {{#each members}}
-  <li><strong>{{this.fname}} {{this.lname}}</strong> - {{this.year}}</li>
-  {{/each}}
-</ul>
+{{#each members}}
+  <div class="team_member">
+    <div class="member_name"><strong>{{this.fname}} {{this.lname}}</strong></div>
+    <div class="member_desc">{{this.desc}}</div>
+  </div>
+{{/each}}

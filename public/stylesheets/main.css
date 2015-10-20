@@ -1,0 +1,25 @@
+*{
+    font-family: 'Open Sans', sans-serif;
+}
+body{
+    margin: 0;
+}
+.content{
+    margin-left: 20px;
+}
+.header{
+    width: 100%;
+    background: #881c1c;
+    color: white;
+    font-size: 40px;
+}
+.team_member {
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+.member_name {
+    font-size: 20px;
+}
+.member_desc {
+    margin-left: 10px;
+}

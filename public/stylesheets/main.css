@@ -27,3 +27,6 @@ body{
     margin-left: 10px;
     width: 65%;
 }
+.feature_list li{
+    width: 50%;
+}

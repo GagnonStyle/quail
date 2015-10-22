@@ -11,7 +11,10 @@ body{
     width: 100%;
     background: #881c1c;
     color: white;
-    font-size: 40px;
+}
+.header_image{
+    margin: 5px 15px;
+    height: 50px;
 }
 .team_member {
     margin-left: 10px;
@@ -22,4 +25,5 @@ body{
 }
 .member_desc {
     margin-left: 10px;
+    width: 65%;
 }

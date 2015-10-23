@@ -5,7 +5,7 @@ body{
     margin: 0;
 }
 .content{
-    margin-left: 20px;
+    margin: 20px;
 }
 .header{
     width: 100%;
@@ -29,4 +29,7 @@ body{
 }
 .feature_list li{
     width: 50%;
+}
+.mockup_img{
+    width: 85%;
 }

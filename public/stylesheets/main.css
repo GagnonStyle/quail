@@ -31,5 +31,8 @@ body{
     width: 50%;
 }
 .mockup_img{
-    width: 85%;
+    width: 50%;
+}
+.title{
+    text-transform: capitalize;
 }

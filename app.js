@@ -3,6 +3,7 @@
 // (2) handlebars - this provides the handlebars templating framework
 var express    = require('express');
 var handlebars = require('express-handlebars');
+var fs = require('fs');
 
 //////////////////////////////////////////////////////////////////////
 ///// Express App Setup //////////////////////////////////////////////
@@ -87,8 +88,24 @@ app.get('/about', (req, res) => {
   res.render('about');
 });
 
-app.get('/', (req, res) => {
-  res.render('home');
+app.get(['/','/mockups'], (req, res) => {
+  if(req.query.mockup){
+    var mockup = req.query.mockup + '_mockup.png';
+  } else {
+    var mockup = 'home_mockup.png';
+  }
+  fs.stat('public/img/mockups/' + mockup, function(err, stat) {
+    if (err) {
+      notFound404(req, res);
+    } else {
+      var text = mockup.substring(0, mockup.indexOf('_mockup.png')).replace(/_/g, ' ');
+      res.render('mockups', {
+        mockup: mockup,
+        text: text
+      });
+    }
+  });
+
 });
 
 //////////////////////////////////////////////////////////////////////

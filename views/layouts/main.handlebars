@@ -8,20 +8,48 @@
 		{{#if showTests}}
 			<link rel="stylesheet" href="/vendor/mocha.css">
 		{{/if}}
-		<link rel="stylesheet" href="/stylesheets/main.css" type="text/css">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
 		<!-- We add the jQuery library because we will be using it
 		     to manipulate HTML in the browser. -->
 		<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
-	</head>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+        <link rel="stylesheet" href="/stylesheets/main.css" type="text/css">
+    </head>
 	<body>
-	  <div class="header">
-      <img class="header_image" src="/img/ufood_header_logo_white.png" alt="U-FOOD"/>
-	  </div>
-	  <div class="content">
-		  {{{body}}}
-    </div>
+        <nav class="navbar navbar-umass">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <img class="navbar-brand" src="/img/ufood_header_logo_white.png" alt="U-FOOD"/>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li class="dropdown">
+                            <a href="/mockups" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mockups <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/mockups?mockup=admin">Admin</a></li>
+                                <li><a href="/mockups?mockup=home">Home</a></li>
+                                <li><a href="/mockups?mockup=login_or_signup">Login or Signup</a></li>
+                                <li><a href="/mockups?mockup=user_profile">User Profile</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </nav>
+        <div class="content">
+            {{{body}}}
+        </div>
 		{{#if showTests}}
 			<div id="mocha"></div>
 			<script src="/vendor/mocha.js"></script>

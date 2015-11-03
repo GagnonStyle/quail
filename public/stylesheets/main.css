@@ -7,11 +7,6 @@ body{
 .content{
     margin: 20px;
 }
-.header{
-    width: 100%;
-    background: #881c1c;
-    color: white;
-}
 .header_image{
     margin: 5px 15px;
     height: 50px;
@@ -35,4 +30,24 @@ body{
 }
 .title{
     text-transform: capitalize;
+}
+.navbar-umass{
+    background-color: #881c1c;
+    color: white;
+    border-radius: 0;
+}
+.navbar-brand{
+    padding: 5px;
+}
+.navbar-nav>li>a {
+    color: white;
+}
+.nav>li>a:hover,
+.nav>li>a:focus {
+    background-color: #c92929;
+}
+.nav .open>a,
+.nav .open>a:hover,
+.nav .open>a:focus{
+    background-color: #a92323;
 }

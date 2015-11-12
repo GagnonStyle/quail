@@ -51,3 +51,14 @@ body{
 .nav .open>a:focus{
     background-color: #a92323;
 }
+
+.left_center {
+    display: inline-block;
+    left: 66%;
+    position: relative;
+}
+.right_center {
+    display: inline-block;
+    left: 33%;
+    position: relative;
+}

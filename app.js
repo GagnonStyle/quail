@@ -66,6 +66,23 @@ app.use(testmw);
 //////////////////////////////////////////////////////////////////////
 ///// User Defined Routes ////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+
+app.get('/home', (req, res) => {
+  res.render('home', {
+    dining_commons: {
+      'berk': 'berk',
+      'frank': 'frank',
+      'hamp': 'hamp',
+      'worcester': 'worcester'
+    },
+    foods: {
+      'pizza': 'pizza',
+      'sushi': 'sushi',
+      'chicken fingers': 'chicken fingers'
+    }
+  });
+});
+
 var team = require('./lib/team.js');
 
 app.get('/team', (req, res) => {

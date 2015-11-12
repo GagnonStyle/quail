@@ -70,10 +70,24 @@ app.use(testmw);
 app.get('/home', (req, res) => {
   res.render('home', {
     dining_commons: {
-      'berk': 'berk',
-      'frank': 'frank',
-      'hamp': 'hamp',
-      'worcester': 'worcester'
+      'berk': {
+        'name': 'Berkshire',
+        'noise': 'loud',
+        'traffic': 'busy'
+      },
+      'frank': {
+        'name': 'Franklin',
+        'noise': 'average',
+        'traffic': 'low'
+      },'hamp': {
+        'name': 'Hampshire',
+        'noise': 'average',
+        'traffic': 'average'
+      },'worcester': {
+        'name': 'Worcester',
+        'noise': 'quiet',
+        'traffic': 'no waits'
+      }
     },
     foods: {
       'pizza': 'pizza',

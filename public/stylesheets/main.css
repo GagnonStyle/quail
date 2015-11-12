@@ -62,3 +62,10 @@ body{
     left: 33%;
     position: relative;
 }
+.stack_right {
+    display: inline-block;
+    padding-right: 50px;
+}
+.quick_summary {
+    background: #ffb;
+}

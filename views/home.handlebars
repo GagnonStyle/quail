@@ -19,11 +19,11 @@
 
 <div class='col-md-6'>
   <h3>Quick Info</h3>
-  <ul>
+  <ul id='quick_summaries'>
     {{#each dining_commons}}
       <li class="quick_summary">
         <div>
-            <h4>{{this.name}}</h4>
+            <h4>{{this.name}}:</h4>
           <dl>
             <div class='stack_right'>
               <dt>Traffic</dt>
@@ -40,9 +40,15 @@
   </ul>
 </div>
 
-<div class='col-md-6'>
+<div id='trending' class='col-md-6'>
   <h3>Trending</h3>
-  <p>
-    This is a sample sentence. This is a sample sentence. This is a sample sentence. This is a sample sentence. This is a sample sentence. This is a sample sentence. This is a sample sentence. This is a sample sentence. This is a sample sentence. This is a sample sentence. This is a sample sentence. This is a sample sentence. This is a sample sentence. This is a sample sentence. This is a sample sentence. This is a sample sentence. 
-  </p>
+  <ul id='reviews'>
+  {{#each reviews}}
+    <li class='review'>
+      <h5 class='review_title'> {{this.dc}} DC</h5>
+      <p><em>{{this.text}}</em></p>
+      <h6 class='post_details'>Posted by {{this.user}} {{this.time}}</h6>
+    </li>
+  {{/each}}
+  </ul>
 </div>

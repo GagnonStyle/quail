@@ -93,6 +93,29 @@ app.get('/home', (req, res) => {
       'pizza': 'pizza',
       'sushi': 'sushi',
       'chicken fingers': 'chicken fingers'
+    },
+    reviews: {
+      '1': {
+        'dc': 'Berkshire',
+        'title': 'OMG',
+        'text': 'Those were the best chicken fingers I\'ve probably ever had in my entire life. I am going to come back for this chicken fingers every day until I die or graduate.',
+        'user': 'omg123',
+        'time': 'a few seconds ago'
+      },
+      '2': {
+        'dc': 'Hampshire',
+        'title': 'So sushi. Such happy.',
+        'text': 'I just got six plates of sushi without having to wait for anyone.',
+        'user': 'sushi32king',
+        'time': 'about 6 minutes ago'
+      },
+      '3': {
+        'dc': 'Worcester',
+        'title': 'Nice morning tunes',
+        'text': 'Worcester has such chill music this morning. That trumpet guy is a BAMF.',
+        'user': 'foobar64',
+        'time': 'about 11 minutes ago'
+      },
     }
   });
 });

@@ -62,10 +62,49 @@ body{
     left: 33%;
     position: relative;
 }
-.stack_right {
-    display: inline-block;
-    padding-right: 50px;
+#quick_info {
+    
+}
+#quick_summaries {
+    background: #CF2A27;
+    padding: 4px 16px;
+    border: 2px solid black;
+    border-radius: 3px;
+}
+#quick_summaries li {
+    list-style-type: none;
 }
 .quick_summary {
-    background: #ffb;
+    /*background: #ffb;*/
+    color: #fff;
+    padding: 0 12px;
+}
+.stack_right {
+    display: inline-block;
+    padding-right: 100px;
+}
+#trending {
+}
+#reviews {
+    background: #CF2A27;
+    padding: 4px 16px;
+    border: 2px solid black;
+    border-radius: 3px;
+}
+#reviews li {
+    list-style-type: none;
+}
+.review {
+    background: white;
+    padding: 4px 8px;
+    margin: 12px 0;
+    border: 2px solid black;
+    border-radius: 3px;
+}
+.review_title {
+    margin: 0 0 6px;
+}
+
+.post_details {
+    text-align: right;
 }

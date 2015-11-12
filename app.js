@@ -90,9 +90,9 @@ app.get('/home', (req, res) => {
       }
     },
     foods: {
-      'pizza': 'pizza',
-      'sushi': 'sushi',
-      'chicken fingers': 'chicken fingers'
+      'pizza': 'Pizza',
+      'sushi': 'Sushi',
+      'chicken fingers': 'Chicken Fingers'
     },
     reviews: {
       '1': {

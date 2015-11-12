@@ -1,5 +1,6 @@
 <div class='col-md-6'>
   <select name='dining_commons' class='left_center'>
+  <option>Select a Dining Commons</option>
     {{#each dining_commons}}
       <option value='{{this.name}}'>{{this.name}}</option>
     {{/each}}
@@ -8,6 +9,7 @@
 
 <div class='col-md-6'>
   <select name='food' class='right_center'>
+    <option>Select a Food</option>
     {{#each foods}}
       <option value='{{this}}'>{{this}}</option>
     {{/each}}

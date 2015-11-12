@@ -21,25 +21,22 @@
 
 <div class='col-md-6'>
   <h3>Quick Info</h3>
-  <ul id='quick_summaries'>
-    {{#each dining_commons}}
-      <li class="quick_summary">
-        <div>
-            <h4>{{this.name}}:</h4>
-          <dl>
-            <div class='stack_right'>
-              <dt>Traffic</dt>
-              <dd>{{this.traffic}}</dd>
-            </div>
-            <div class='stack_right'>
-              <dt>Noise Level</dt>
-              <dd>{{this.noise}}</dd>
-            </div>
-          </dl>
-        </div>
-      </li>
-    {{/each}}
-  </ul>
+  <div class="red_box">
+    <table id='quick_summaries'>
+      {{#each dining_commons}}
+        <tr>
+          <th colspan=2>{{this.name}} Dining Commons</th>
+        </tr>
+        <tr>
+          <td>Traffic - {{this.traffic}}</td>
+          <td>Noise - {{this.noise}}</td>
+        </tr>
+        <tr>
+          <td colspan=4>&nbsp;</td>
+        </tr>
+      {{/each}}
+    </table>
+  </div>
 </div>
 
 <div id='trending' class='col-md-6'>

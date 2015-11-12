@@ -63,20 +63,22 @@ body{
     position: relative;
 }
 #quick_info {
-    
 }
-#quick_summaries {
+.red_box {
     background: #CF2A27;
     padding: 4px 16px;
     border: 2px solid black;
     border-radius: 3px;
 }
-#quick_summaries li {
-    list-style-type: none;
+#quick_summaries {
+    font-size: 120%;
+    color: #fff;
+    margin-top: 12px;
+}
+#quick_summaries td {
+    padding-right: 100px;
 }
 .quick_summary {
-    /*background: #ffb;*/
-    color: #fff;
     padding: 0 12px;
 }
 .stack_right {

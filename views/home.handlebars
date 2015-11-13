@@ -41,12 +41,12 @@
 
 <div id='trending' class='col-md-6'>
   <h3>Trending</h3>
-  <ul id='reviews'>
+  <ul id='reviews' class='red_box'>
   {{#each reviews}}
     <li class='review'>
-      <h5 class='review_title'> {{this.dc}} DC</h5>
-      <p><em>{{this.text}}</em></p>
-      <h6 class='post_details'>Posted by {{this.user}} {{this.time}}</h6>
+      <h5 class='review_title'>{{this.dc}} Dining Commons</h5>
+      <p><em>"{{this.text}}"</em></p>
+      <h6 class='post_details'>{{this.user}} {{this.time}}</h6>
     </li>
   {{/each}}
   </ul>

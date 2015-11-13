@@ -62,8 +62,6 @@ body{
     left: 33%;
     position: relative;
 }
-#quick_info {
-}
 .red_box {
     background: #CF2A27;
     padding: 4px 16px;
@@ -81,18 +79,6 @@ body{
 .quick_summary {
     padding: 0 12px;
 }
-.stack_right {
-    display: inline-block;
-    padding-right: 100px;
-}
-#trending {
-}
-#reviews {
-    background: #CF2A27;
-    padding: 4px 16px;
-    border: 2px solid black;
-    border-radius: 3px;
-}
 #reviews li {
     list-style-type: none;
 }
@@ -106,7 +92,7 @@ body{
 .review_title {
     margin: 0 0 6px;
 }
-
 .post_details {
     text-align: right;
+    opacity: .71;
 }

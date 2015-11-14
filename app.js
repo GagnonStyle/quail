@@ -72,21 +72,21 @@ app.get('/home', (req, res) => {
     dining_commons: {
       'berk': {
         'name': 'Berkshire',
-        'noise': 'loud',
-        'traffic': 'busy'
+        'noise': 'Loud',
+        'traffic': 'Busy'
       },
       'frank': {
         'name': 'Franklin',
-        'noise': 'average',
-        'traffic': 'low'
+        'noise': 'Average',
+        'traffic': 'Low'
       },'hamp': {
         'name': 'Hampshire',
-        'noise': 'average',
-        'traffic': 'average'
+        'noise': 'Average',
+        'traffic': 'Average'
       },'worcester': {
         'name': 'Worcester',
-        'noise': 'quiet',
-        'traffic': 'no waits'
+        'noise': 'Quiet',
+        'traffic': 'Low'
       }
     },
     foods: {
@@ -206,4 +206,3 @@ app.listen(app.get('port'), () => {
   console.log('Express started on http://localhost:' +
               app.get('port') + '; press Ctrl-C to terminate');
 });
-

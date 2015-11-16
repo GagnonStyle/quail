@@ -10,7 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.13.3",
-    "express-handlebars": "^2.0.1"
+    "express-handlebars": "^2.0.1",
+    "pg": "^4.4.3"
   },
   "devDependencies": {
     "archiver": "^0.15.1",

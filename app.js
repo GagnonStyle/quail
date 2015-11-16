@@ -124,16 +124,26 @@ var team = require('./lib/team.js');
 
 app.get('/team', (req, res) => {
   if (req.query.user){
-    var result = team.one(req.query.user);
+    team.one(req.query.user, function(err, user){
+      if(err){
+        //Flash something with the error
+        notFound404(req, res);
+      } else {
+        res.render('team', {
+          members: user
+        });
+      }
+    });
   } else {
-    var result = team.all();
-  }
-  if (!result.success) {
-    notFound404(req, res);
-  } else {
-    res.render('team', {
-      members: result.data,
-      pageTestScript: '/qa/tests-team.js'
+    team.all(function(err, users){
+      if(err){
+        //Flash something with the error
+        notFound404(req, res);
+      } else {
+        res.render('team', {
+          members: users
+        });
+      }
     });
   }
 });

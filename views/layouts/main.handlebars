@@ -49,6 +49,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         {{#if user}}
                             <li><a href="/users/profile">{{user.firstname}} {{user.lastname}}</a></li>
+                            <li><a href="/users/logout">Log Out</a></li>
                         {{else}}
                             <li><a href="/users/login">Log In</a></li>
                         {{/if}}

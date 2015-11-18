@@ -44,6 +44,13 @@ router.get('/login', (req, res) => {
   }
 });
 
+router.get('/user/profile', (req,res) => {
+  //grab user session
+  var user = req.session.user;
+
+  res.render('user-profile');
+});
+
 router.post('/auth', (req, res) => {
   // Grab the session if the user is logged in.
   var user = req.session.user;

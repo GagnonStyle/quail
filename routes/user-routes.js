@@ -60,11 +60,20 @@ router.get('/login', (req, res) => {
   }
 });
 
-router.get('/user/profile', (req,res) => {
+router.get('/profile', (req,res) => {
   //grab user session
   var user = req.session.user;
 
-  res.render('user-profile');
+  // if online, display profile
+  if (user && online[user.username]) {
+    res.render('user-profile', {
+    message: message,
+    user: user});
+  } else {
+    var message = req.flash('login');
+    res.render('login', { message: message });
+  }
+  // res.render('user-profile');
 });
 
 router.post('/auth', (req, res) => {

@@ -65,15 +65,19 @@ router.get('/profile', (req,res) => {
   var user = req.session.user;
 
   // if online, display profile
-  if (user && online[user.username]) {
+  if (user && online[user.username])
+  {
+    var message = 'Welcome, ' + user.username + '!'
     res.render('user-profile', {
     message: message,
     user: user});
-  } else {
-    var message = req.flash('login');
-    res.render('login', { message: message });
   }
-  // res.render('user-profile');
+  // else redirect to login
+  else
+  {
+    req.flash('login','Please login to view your profile:')
+    res.redirect('/users/login');
+  }
 });
 
 router.post('/auth', (req, res) => {

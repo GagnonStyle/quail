@@ -138,5 +138,37 @@ router.post('/auth', (req, res) => {
   }
 });
 
+router.post('/auth+change', (req,res) => {
+  // Grab the session if the user is logged in.
+  var user = req.session.user;
+
+  // Change password if cookie and user is online:
+  if (user && online[user.username])
+  {
+    var password = req.body.password;
+
+    if (!password)
+    {
+      req.flash('change-pass', 'did not provide the proper credentials');
+      res.redirect('/users/change-password');
+    }
+    else
+    {
+      model.login(user.username, password, function(error, user) {
+        if (error)
+        {
+          // Pass a message to login:
+          req.flash('change-pass', 'did not provide the proper credentials');
+          res.redirect('/users/change-password');
+        }
+        else
+        {
+          
+        }
+      });
+    }
+  }
+});
+
 
 module.exports = router;

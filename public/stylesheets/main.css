@@ -99,6 +99,7 @@ body{
 
 .acc_info {
     color: #fff;
+    list-style-type: none;
 }
 
 .acc_info a {

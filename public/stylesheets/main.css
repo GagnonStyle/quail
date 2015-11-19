@@ -96,3 +96,11 @@ body{
     text-align: right;
     opacity: .71;
 }
+
+.acc_info {
+    color: #fff;
+}
+
+.acc_info a {
+    color: #D7FF1A;
+}

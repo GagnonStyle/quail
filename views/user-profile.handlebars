@@ -20,27 +20,15 @@
 <br>
 
 <div class='col-md-6'>
-  <h3>Quick Info</h3>
-  <div class="red_box">
-    <table id='quick_summaries'>
-      {{#each dining_commons}}
-        <tr>
-          <th colspan=2>{{this.name}} Dining Commons</th>
-        </tr>
-        <tr>
-          <td>Traffic - {{this.traffic}}</td>
-          <td>Noise - {{this.noise}}</td>
-        </tr>
-        <tr>
-          <td colspan=4>&nbsp;</td>
-        </tr>
-      {{/each}}
-    </table>
+  <h3>Account Info</h3>
+  <div class="red_box acc_info">
+    <a href="/users/change-password">Change Password</a>
+    asdfasdfasdfas
   </div>
 </div>
 
 <div id='trending' class='col-md-6'>
-  <h3>Trending</h3>
+  <h3>Your Reviews</h3>
   <ul id='reviews' class='red_box'>
   {{#each reviews}}
     <li class='review'>

@@ -44,7 +44,7 @@ router.get('/logout', (req,res) => {
   }
 
   res.redirect('/home');
-
+ 
 })
 
 
@@ -83,12 +83,14 @@ router.get('/profile', (req,res) => {
 router.get('/change-password', (req,res) => {
   //grab user session
   var user = req.session.user;
+  var message = req.flash('change-pass');
 
   // if online, render change-pass view
   if (user && online[user.username])
   {
     res.render('change-pass', {
-    user: user});
+    user: user,
+    message: message});
   }
   // else redirect to login
   else
@@ -138,35 +140,51 @@ router.post('/auth', (req, res) => {
   }
 });
 
-router.post('/auth+change', (req,res) => {
+router.post('/authchange', (req,res) => {
   // Grab the session if the user is logged in.
   var user = req.session.user;
 
   // Change password if cookie and user is online:
   if (user && online[user.username])
   {
-    var password = req.body.password;
+    var currpass = req.body.password;
+    var newpass = req.body.newpass;
+    var newpass2 = req.body.newpass2;
+    var username = user.username;
 
-    if (!password)
+    if (!currpass || !newpass)
     {
-      req.flash('change-pass', 'did not provide the proper credentials');
+      req.flash('change-pass', 'did not provide a valid password');
+      res.redirect('/users/change-password');
+    }
+    else if(newpass!==newpass2)
+    {
+      req.flash('change-pass', 'new passwords don\'t match');
       res.redirect('/users/change-password');
     }
     else
     {
-      model.login(user.username, password, function(error, user) {
-        if (error)
+      model.changePass(username, currpass, newpass, function(err, user) {
+        if(err)
         {
-          // Pass a message to login:
-          req.flash('change-pass', 'did not provide the proper credentials');
+          req.flash('change-pass', err+' from second');
           res.redirect('/users/change-password');
         }
         else
         {
-          
+          // console.log('here!');
+          delete online[username];
+          delete user;
+          req.flash('login', "Password change successful, please enter credentials:");
+          res.redirect('/users/login');
         }
       });
     }
+  }
+  else
+  {
+    req.flash('login', "Please log in to change your password:");
+    res.redirect('/users/login');
   }
 });
 

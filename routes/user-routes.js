@@ -7,6 +7,9 @@ var router = express.Router();
 var online = {};
 
 router.get('/', (req, res) => {
+  //grab user session
+  var session_user = req.session.user;
+
   if (req.query.user){
     model.one(req.query.user, function(err, user){
       if(err){
@@ -14,7 +17,8 @@ router.get('/', (req, res) => {
         res.redirect('/home')
       } else {
         res.render('team', {
-          members: user
+          members: user,
+          user: session_user
         });
       }
     });
@@ -25,7 +29,8 @@ router.get('/', (req, res) => {
         res.redirect('/home')
       } else {
         res.render('team', {
-          members: users
+          members: users,
+          user: session_user
         });
       }
     });

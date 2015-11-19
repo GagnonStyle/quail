@@ -80,6 +80,24 @@ router.get('/profile', (req,res) => {
   }
 });
 
+router.get('/change-password', (req,res) => {
+  //grab user session
+  var user = req.session.user;
+
+  // if online, render change-pass view
+  if (user && online[user.username])
+  {
+    res.render('change-pass', {
+    user: user});
+  }
+  // else redirect to login
+  else
+  {
+    req.flash('login','Please login to change your password:')
+    res.redirect('/users/login');
+  }
+});
+
 router.post('/auth', (req, res) => {
   // Grab the session if the user is logged in.
   var user = req.session.user;

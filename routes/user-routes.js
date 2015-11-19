@@ -105,6 +105,22 @@ router.get('/change-password', (req,res) => {
   }
 });
 
+// handles account creation
+router.get('/signup', (req,res) => {
+  //grab user session
+  var user = req.session.user;
+
+  // can't create account if already logged in, redirect to home
+  if (user)
+  {
+    res.flash('home', 'Cannot create account if logged in.');
+    res.redirect('/home');
+  }
+  // else redirect to signup page
+  else
+    res.render('signup', {user: user});
+});
+
 router.post('/auth', (req, res) => {
   // Grab the session if the user is logged in.
   var user = req.session.user;

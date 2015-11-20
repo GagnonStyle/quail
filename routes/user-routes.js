@@ -65,6 +65,8 @@ router.get('/login', (req, res) => {
   }
 });
 
+// renders user profile view, if logged in/online
+// else redirects to login page
 router.get('/profile', (req,res) => {
   //grab user session
   var user = req.session.user;
@@ -85,6 +87,9 @@ router.get('/profile', (req,res) => {
   }
 });
 
+// renders change password view
+// checks if user is online/logged in
+// if not, redirects to login
 router.get('/change-password', (req,res) => {
   //grab user session
   var user = req.session.user;
@@ -105,7 +110,8 @@ router.get('/change-password', (req,res) => {
   }
 });
 
-// handles account creation
+// renders signup view, only if not logged in
+// if already logged in, redirects to home
 router.get('/signup', (req,res) => {
   //grab user session
   var user = req.session.user;
@@ -164,6 +170,10 @@ router.post('/auth', (req, res) => {
   }
 });
 
+// receives post from change-pass
+// if change-pass request is valid, changes
+// users password, then logs user out and
+// redirects to login
 router.post('/authchange', (req,res) => {
   // Grab the session if the user is logged in.
   var user = req.session.user;
@@ -176,16 +186,19 @@ router.post('/authchange', (req,res) => {
     var newpass2 = req.body.newpass2;
     var username = user.username;
 
+    // passwords must be at least 1 letter
     if (!currpass || !newpass)
     {
       req.flash('change-pass', 'did not provide a valid password');
       res.redirect('/users/change-password');
     }
+    // entered passwords must match
     else if(newpass!==newpass2)
     {
       req.flash('change-pass', 'new passwords don\'t match');
       res.redirect('/users/change-password');
     }
+    // all good, change password
     else
     {
       model.changePass(username, currpass, newpass, function(err, user) {
@@ -194,6 +207,7 @@ router.post('/authchange', (req,res) => {
           req.flash('change-pass', 'Error: '+err);
           res.redirect('/users/change-password');
         }
+        // if successfull, log user out and redirect to login page
         else
         {
           delete online[username];
@@ -204,6 +218,7 @@ router.post('/authchange', (req,res) => {
       });
     }
   }
+  // need to be logged in to change password
   else
   {
     req.flash('login', "Please log in to change your password:");
@@ -211,6 +226,10 @@ router.post('/authchange', (req,res) => {
   }
 });
 
+// receives post from signup page
+// if valid request, adds new user
+// handles any possible errors
+// if successful, redirects to login
 router.post('/new', (req,res) => {
   // can't create account if already logged in, redirect to home
   if(req.session.user)
@@ -221,7 +240,7 @@ router.post('/new', (req,res) => {
   // otherwise create new user
   else
   {
-    // 'data' object has properties:
+    // 'data' object has following properties:
     // 'fname', 'lname', 'uname', 'pass', 'pass2', 'about'
     // 'about' is optional (can be empty)
     var data = req.body;
@@ -240,6 +259,7 @@ router.post('/new', (req,res) => {
     }
     else
     {
+      // all good, add user
       model.addUser(data, function(err, user) {
         if(err)
         {

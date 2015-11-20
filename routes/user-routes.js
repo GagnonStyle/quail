@@ -109,16 +109,19 @@ router.get('/change-password', (req,res) => {
 router.get('/signup', (req,res) => {
   //grab user session
   var user = req.session.user;
+  var message = req.flash('signup');
 
   // can't create account if already logged in, redirect to home
   if (user)
   {
-    res.flash('home', 'Cannot create account if logged in.');
+    req.flash('home', 'Cannot create account if logged in.');
     res.redirect('/home');
   }
-  // else redirect to signup page
+  // else render signup page
   else
-    res.render('signup', {user: user});
+    res.render('signup', {
+      user: user,
+      message: message});
 });
 
 router.post('/auth', (req, res) => {
@@ -188,12 +191,11 @@ router.post('/authchange', (req,res) => {
       model.changePass(username, currpass, newpass, function(err, user) {
         if(err)
         {
-          req.flash('change-pass', err+' from second');
+          req.flash('change-pass', 'Error: '+err);
           res.redirect('/users/change-password');
         }
         else
         {
-          // console.log('here!');
           delete online[username];
           delete user;
           req.flash('login', "Password change successful, please enter credentials:");
@@ -209,5 +211,49 @@ router.post('/authchange', (req,res) => {
   }
 });
 
+router.post('/new', (req,res) => {
+  // can't create account if already logged in, redirect to home
+  if(req.session.user)
+  {
+    req.flash('home', 'Error: Already logged in.');
+    res.redirect('/home');
+  }
+  // otherwise create new user
+  else
+  {
+    // 'data' object has properties:
+    // 'fname', 'lname', 'uname', 'pass', 'pass2', 'about'
+    // 'about' is optional (can be empty)
+    var data = req.body;
+    console.log(data.fname);
+    // if any empty inputs, redirect back to signup with message
+    if(!(data.fname&&data.lname&&data.uname&&data.pass&&data.pass2))
+    {
+      req.flash('signup', 'One or more required fields omitted');
+      res.redirect('/users/signup');
+    }
+    // check if passwords match
+    else if(data.pass!==data.pass2)
+    {
+      req.flash('signup', 'Passwords must match');
+      res.redirect('/users/signup');
+    }
+    else
+    {
+      model.addUser(data, function(err, user) {
+        if(err)
+        {
+          req.flash('signup', 'Error: '+err);
+          res.redirect('/users/signup');
+        }
+        else
+        {
+          req.flash('login', 'Account created successfully! Please log in.');
+          res.redirect('/users/login');
+        }
+      });
+    }
+  }   
+});
 
 module.exports = router;

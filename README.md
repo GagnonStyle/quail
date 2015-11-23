@@ -13,6 +13,11 @@ CS326: Web Development (Starring Tim Richards)
 
 ## Overview
 
+Out of the many different ideas that our team came up with, we are excited to create one on a subject that we all like, eating food on campus. U-Food encompasses the idea of a dining commons tracker, with information that is presented to be a UMass food guide. Included are options for showing lines and wait times for getting into the dining common, or for specific foods such as stir fry or sushi. A section of U-Food will include the day’s menu for all dining commons. There will be options to “check-in” at the dining commons, and also provide location services, such as where each dining common is located.
+
+U-Food will not only allow the user to interact with the information, but with other users as well. If applicable, users can submit their own food reviews and other users can comment on their reviews. Users can also ask questions and similarly, other users can answer those questions. Users can also report when a specific dining common runs out of food, such as the popular pizza, or corn beef hash. Custom events at the dining commons can be added and edited with times and locations. U-Food will also include the twitter for umass dining services, similar to the ones shown on the televisions at their respective dining commons. Overall, U-Food aims to simplify and enhance the UMass dining experience.
+
+
 ## How To Run
 
 1. Clone or download the repository.

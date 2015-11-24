@@ -31,9 +31,9 @@ U-Food will not only allow the user to interact with the information, but with o
 ## Views
 
 * **Home:**
-* **About:**
-* **Login:**
-* **Signup:**
+* **About:**  The "about" view exists for guests or users who wish to know more about U-Food. This presents users what U-Food is all about. It displays a detailed and short summary of our web application.
+* **Login:** The "login" page presents a blank username field and a black password field. Once guest types in the user data, the "Login" button will redirect the user to the "Home" page. If a guest does not have credentials, a "signup" link is available.
+* **Signup:** 
 * **Team:**
 * **Mockup:**
 * **User Profile:**

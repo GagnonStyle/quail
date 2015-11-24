@@ -39,8 +39,8 @@ router.get('/', (req, res) => {
 
 router.get('/logout', (req,res) => {
   var user = req.session.user;
+  
   if(user && !online[user.username]){
-    //var message = req.flash('logout successful');
     delete req.session.user;
   }
   else if(user){
@@ -50,7 +50,7 @@ router.get('/logout', (req,res) => {
 
   res.redirect('/home');
  
-})
+});
 
 
 router.get('/login', (req, res) => {

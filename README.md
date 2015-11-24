@@ -30,12 +30,12 @@ U-Food will not only allow the user to interact with the information, but with o
 
 ## Views
 
-* **Home:**
+* **Home:** The "home" page is where the main sections of U-Food will be displayed. Most of the information that users and guests will need will be displayed here. The sections are displayed in columns on the page.
 * **About:**  The "about" view exists for guests or users who wish to know more about U-Food. This presents users what U-Food is all about. It displays a detailed and short summary of our web application.
 * **Login:** The "login" page presents a blank username field and a black password field. Once guest types in the user data, the "Login" button will redirect the user to the "Home" page. If a guest does not have credentials, a "signup" link is available.
-* **Signup:** 
-* **Team:**
-* **Mockup:**
+* **Signup:** The "signup" page shows the guest a number of fillable fields to enter credentials. Names, usernames, passwords, and descriptions are available fields the guest can type in. These credentials then get saved into the user database.
+* **Team:** The "team" page displays all of the team member information which is grabbed from the user database.
+* **Mockups:** The "mockups" view presents guests and users the initial mockups that were created by the U-Food team. This view may be removed in the future when the web application reaches closer to a usable, working state.
 * **User Profile:**
 * **Change Password:**
 * **Error 404 & 500:**

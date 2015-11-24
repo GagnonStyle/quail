@@ -21,15 +21,15 @@
 
 <div class='col-md-6'>
   <h3>Quick Info</h3>
-  <div class="red_box">
+  <div class="red_box acc_info">
     <table id='quick_summaries'>
       {{#each dining_commons}}
         <tr>
-          <th colspan=2>{{this.name}} Dining Commons</th>
+          <th colspan=2><a href="/dining_commons?dcid={{this.dcid}}">{{this.name}} Dining Commons</a></th>
         </tr>
         <tr>
-          <td>Traffic - {{this.traffic}}</td>
-          <td>Noise - {{this.noise}}</td>
+          <td>Traffic - {{this.crowdedness}}</td>
+          <td>Noise - {{this.noise_level}}</td>
         </tr>
         <tr>
           <td colspan=4>&nbsp;</td>

@@ -1,4 +1,5 @@
 drop table if exists users;
+drop table if exists dining_commons;
 
 create table users (
   uid serial,
@@ -16,3 +17,19 @@ insert into users values (default, 'nrecchia', 'password', 'Neven', 'Recchia', '
 insert into users values (default, 'nsrecchia', 'password', 'Noel', 'Recchia', 'The second twin! I’m Noel and some of U-Foodplate involves ironing out general information for the team. Working on live datautilization with George will be the meat on my plate. The veggies and the sidesinclude helping other members with their share U-Food. In regards to live data,creating and organizing a smart, flexible database is a priority. Information and organization will be diverse and the database will reflect that. I enjoy working with others, and I am not afraid to get my hands dirty for others that need assistance. I am excited to be part of the team and part of the project!');
 insert into users values (default, 'dwhitaker', 'password', 'Dave', 'Whitaker', 'Hey, My name is Dave. One feature that U-Food will be implementing is the feature that allows users to input reviews of the dining halls and the food they ate. My goal for the team is to implement ways for users to contribute their ratings to the website, whether it be a simple 5 star rating, or a written comment. The goal here is to allow users to easily input their reviews, and have them be displayed properly on the website. This will require having databases with all the reviews, and handling them properly. We here at U-Food think that the users will really find it interesting to see what the community thinks of the food. Theres nothing that this super team cannot accomplish, the team and I are excited to put this all together.');
 insert into users values (default, 'jamiraul', 'password', 'Jef', 'Amirault', 'My name is Jef and I will be focusing on super intuitive forms extracting the most pertinent information from our users while minimizing the thought and effort required by the user. Nobody likes surveys, but that is more or less what we are pursuing here. The goal is to not make it feel like work when you are contributing to the app. Surveying this information from the user should be fun and easy-as-pie. I’ve been programming in the Ruby on Rails web framework here at UMass IT for 2.5 years. I love the feeling of a pristine web form. I''m looking forward to making clean, efficacious web forms. My goal for user experience is thus: at first, the user should be entering data (like what''s for food right at this moment), and say "DAMN that was some cool interface." After a few uses, there should be no thought whatsoever involved in posting live data.');
+
+
+create table dining_commons (
+ dcid serial,
+ name varchar(255),
+ location varchar(255),
+ noise_level integer,
+ crowdedness integer,
+ primary key (dcid)
+);
+
+insert into dining_commons values (default, 'Worcestor', 'Northeast', 0, 0);
+insert into dining_commons values (default, 'Franklin', 'Central', 0, 0);
+insert into dining_commons values (default, 'Hampshire', 'Southwest', 0, 0);
+insert into dining_commons values (default, 'Berkshire', 'Southwest', 0, 0);
+insert into dining_commons values (default, 'Blue Wall', 'Campus Center', 0, 0);

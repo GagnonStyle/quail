@@ -36,9 +36,9 @@ U-Food will not only allow the user to interact with the information, but with o
 * **Signup:** The "signup" page shows the guest a number of fillable fields to enter credentials. Names, usernames, passwords, and descriptions are available fields the guest can type in. These credentials then get saved into the user database.
 * **Team:** The "team" page displays all of the team member information which is grabbed from the user database.
 * **Mockups:** The "mockups" view presents guests and users the initial mockups that were created by the U-Food team. This view may be removed in the future when the web application reaches closer to a usable, working state.
-* **User Profile:**
-* **Change Password:**
-* **Error 404 & 500:**
+* **User Profile:** The "user profile" view appears when a user clicks on their username on the header after they log in. This page showcases a few statistics on the user and their activity on U-Food. A few account options such as changing passwords are avaiable in this view.
+* **Change Password:** This view appears when a user clicks on the change password link on the "user profile" view. A field requiring the current password as well as fields for the new passwords appear here.
+* **Error 404 & 500:** Oh dear. You broke U-Food. Please contact the team members. (This view is pretty self-explanitory.)
 
 ## Statefulness
 

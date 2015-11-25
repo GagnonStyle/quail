@@ -28,6 +28,18 @@ U-Food will not only allow the user to interact with the information, but with o
 
 ## Libraries
 
+* **[Node.js:](https://github.com/nodejs/node)**
+
+* **[Express:](https://github.com/expressjs/expressjs.github.io)**
+* **[Express-Session:](https://github.com/expressjs/session)**
+* **[Body-Parser:](https://github.com/expressjs/body-parser)**
+* **[Cookie-Parser:](https://github.com/expressjs/cookie-parser)**
+* **[Connect-Flash:](https://github.com/expressjs/flash)**
+
+* **[Handlebars:](https://github.com/wycats/handlebars.js)**
+
+* **[PostgreSQL:](https://github.com/postgres/postgres)**
+
 ## Views
 
 * **Home:** The "home" page is where the main sections of U-Food will be displayed. Most of the information that users and guests will need will be displayed here. The sections are displayed in columns on the page.

@@ -47,4 +47,6 @@ U-Food will not only allow the user to interact with the information, but with o
 
 ## Statefulness
 
+When we first start the application, To log in you have to go to the [login page](../views/login.handlebars), or the [signup page](../views/signup.handlebars) to create an account. In our [routing handler for users](../routes/user-routes.js), the user session is grabbed. If the user logs out, the session is deleted, and redirected to the [home page](../views/home.handlebars). User functionality is included within the [lib/user](../lib/user.js). One function is the changing of passwords. The user would be taken to the [change-password page](change-pass.handlebars). Changes will be made within the database. More information about users and the corresponding database will be included in the next section.
+
 ## Persistence

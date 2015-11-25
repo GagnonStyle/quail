@@ -28,17 +28,10 @@ U-Food will not only allow the user to interact with the information, but with o
 
 ## Libraries
 
-* **[Node.js:](https://github.com/nodejs/node)**
-
-* **[Express:](https://github.com/expressjs/expressjs.github.io)**
-* **[Express-Session:](https://github.com/expressjs/session)**
-* **[Body-Parser:](https://github.com/expressjs/body-parser)**
-* **[Cookie-Parser:](https://github.com/expressjs/cookie-parser)**
-* **[Connect-Flash:](https://github.com/expressjs/flash)**
-
-* **[Handlebars:](https://github.com/wycats/handlebars.js)**
-
-* **[PostgreSQL:](https://github.com/postgres/postgres)**
+* **[Node.js:](https://github.com/nodejs/node)** The framework to build our application.
+* **[Express:](https://github.com/expressjs/expressjs.github.io)** Node.js web application framework (middleware) suitable for our needs. It is used for creating sessions, parsing bodies, populate cookies, and implementing flash messages.
+* **[Handlebars.js:](https://github.com/wycats/handlebars.js)** Handlebars.js is an extension of Mustache templating language which keeps the views and code separated for rendering.
+* **[PostgreSQL:](https://github.com/postgres/postgres)** This advanced object-relational database management system will be useful for our databases.
 
 ## Views
 

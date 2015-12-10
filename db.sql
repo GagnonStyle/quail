@@ -1,5 +1,6 @@
 drop table if exists users;
 drop table if exists dining_commons;
+drop table if exists reviews;
 
 create table users (
   uid serial,
@@ -33,3 +34,18 @@ insert into dining_commons values (default, 'Franklin', 'Central', 0, 0);
 insert into dining_commons values (default, 'Hampshire', 'Southwest', 0, 0);
 insert into dining_commons values (default, 'Berkshire', 'Southwest', 0, 0);
 insert into dining_commons values (default, 'Blue Wall', 'Campus Center', 0, 0);
+
+create table reviews (
+	rid serial,
+	dcid integer,
+	uid integer,
+	time timestamp,
+	revdesc text,
+	primary key (rid)
+);
+
+insert into reviews values (default, 1, 1, '2015-12-09 00:00:01', 'The food here was great!');
+insert into reviews values (default, 2, 2, '2015-12-09 00:00:02', 'The food here was amazing!');
+insert into reviews values (default, 3, 3, '2015-12-09 00:00:03', 'The food here was tasty!');
+insert into reviews values (default, 4, 4, '2015-12-09 00:00:04', 'The food here was spicy!');
+insert into reviews values (default, 5, 5, '2015-12-09 00:00:05', 'The food here was delicious!');

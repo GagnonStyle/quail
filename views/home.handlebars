@@ -1,8 +1,8 @@
 <div class='col-md-6'>
-  <select name='dining_commons' class='left_center'>
+  <select name='dining_commons' class='right_center' id="dc_select">
   <option>Select a Dining Commons</option>
-    {{#each dining_commons}}
-      <option value='{{this.name}}'>{{this.name}}</option>
+    {{#each list_dcs}}
+      <option value='{{this.dcid}}'>{{this.name}}</option>
     {{/each}}
   </select>
 </div>

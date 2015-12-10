@@ -9,6 +9,7 @@ var online = {};
 router.get('/', (req, res) => {
   //grab user session
   var session_user = req.session.user;
+  var list_dcs = req.session.commons;
 
   if (req.query.user){
     model.one(req.query.user, function(err, user){
@@ -18,7 +19,8 @@ router.get('/', (req, res) => {
       } else {
         res.render('team', {
           members: user,
-          user: session_user
+          user: session_user,
+          list_dcs: list_dcs
         });
       }
     });
@@ -30,7 +32,8 @@ router.get('/', (req, res) => {
       } else {
         res.render('team', {
           members: users,
-          user: session_user
+          user: session_user,
+          list_dcs: list_dcs
         });
       }
     });
@@ -55,13 +58,17 @@ router.get('/logout', (req,res) => {
 
 router.get('/login', (req, res) => {
   var user = req.session.user;
+  var list_dcs = req.session.commons;
 
   // Redirect to main if cookie and user is online:
   if (user && online[user.username]) {
     res.redirect('/home');
   } else {
     var message = req.flash('login');
-    res.render('login', { message: message });
+    res.render('login', {
+      message: message,
+      list_dcs: list_dcs
+    });
   }
 });
 
@@ -70,14 +77,17 @@ router.get('/login', (req, res) => {
 router.get('/profile', (req,res) => {
   //grab user session
   var user = req.session.user;
+  var list_dcs = req.session.commons;
 
   // if online, display profile
   if (user && online[user.username])
   {
     var message = 'Welcome, ' + user.username + '!'
     res.render('user-profile', {
-    message: message,
-    user: user});
+      message: message,
+      user: user,
+      list_dcs: list_dcs
+    });
   }
   // else redirect to login
   else
@@ -93,14 +103,17 @@ router.get('/profile', (req,res) => {
 router.get('/change-password', (req,res) => {
   //grab user session
   var user = req.session.user;
+  var list_dcs = req.session.commons;
   var message = req.flash('change-pass');
 
   // if online, render change-pass view
   if (user && online[user.username])
   {
     res.render('change-pass', {
-    user: user,
-    message: message});
+      user: user,
+      message: message,
+      list_dcs: list_dcs
+    });
   }
   // else redirect to login
   else
@@ -115,6 +128,7 @@ router.get('/change-password', (req,res) => {
 router.get('/signup', (req,res) => {
   //grab user session
   var user = req.session.user;
+  var list_dcs = req.session.commons;
   var message = req.flash('signup');
 
   // can't create account if already logged in, redirect to home
@@ -127,7 +141,9 @@ router.get('/signup', (req,res) => {
   else
     res.render('signup', {
       user: user,
-      message: message});
+      message: message,
+      list_dcs: list_dcs
+    });
 });
 
 router.post('/auth', (req, res) => {

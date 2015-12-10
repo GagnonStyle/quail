@@ -19,6 +19,15 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+var DC = require('./lib/dining_common');
+function getDCs(req,res,next){
+  DC.all(function(err, dcs){
+    req.session.commons = dcs;
+    next();
+  });
+}
+app.use(getDCs);
+
 app.set('port', process.env.PORT || 3000);
 
 var view = handlebars.create({ defaultLayout: 'main' });
@@ -62,42 +71,41 @@ app.use(testmw);
 
 app.get('/home', (req, res) => {
   var user = req.session.user;
+  var list_dcs = req.session.commons;
   var message = req.flash('home');
-  var dining_common = require('./lib/dining_common');
-  dining_common.all(function(err, dcs){
-    res.render('home', {
-      message: message,
-      user: user,
-      dining_commons: dcs,
-      foods: {
-        'pizza': 'Pizza',
-        'sushi': 'Sushi',
-        'chicken fingers': 'Chicken Fingers'
+  res.render('home', {
+    message: message,
+    user: user,
+    list_dcs: list_dcs,
+    dining_commons: list_dcs,
+    foods: {
+      'pizza': 'Pizza',
+      'sushi': 'Sushi',
+      'chicken fingers': 'Chicken Fingers'
+    },
+    reviews: {
+      '1': {
+        'dc': 'Berkshire',
+        'title': 'OMG',
+        'text': 'Those were the best chicken fingers I\'ve probably ever had in my entire life. I am going to come back for this chicken fingers every day until I die or graduate.',
+        'user': 'omg123',
+        'time': 'a few seconds ago'
       },
-      reviews: {
-        '1': {
-          'dc': 'Berkshire',
-          'title': 'OMG',
-          'text': 'Those were the best chicken fingers I\'ve probably ever had in my entire life. I am going to come back for this chicken fingers every day until I die or graduate.',
-          'user': 'omg123',
-          'time': 'a few seconds ago'
-        },
-        '2': {
-          'dc': 'Hampshire',
-          'title': 'So sushi. Such happy.',
-          'text': 'I just got six plates of sushi without having to wait for anyone.',
-          'user': 'sushi32king',
-          'time': 'about 6 minutes ago'
-        },
-        '3': {
-          'dc': 'Worcester',
-          'title': 'Nice morning tunes',
-          'text': 'Worcester has such chill music this morning. That trumpet guy is a BAMF.',
-          'user': 'foobar64',
-          'time': 'about 11 minutes ago'
-        },
+      '2': {
+        'dc': 'Hampshire',
+        'title': 'So sushi. Such happy.',
+        'text': 'I just got six plates of sushi without having to wait for anyone.',
+        'user': 'sushi32king',
+        'time': 'about 6 minutes ago'
+      },
+      '3': {
+        'dc': 'Worcester',
+        'title': 'Nice morning tunes',
+        'text': 'Worcester has such chill music this morning. That trumpet guy is a BAMF.',
+        'user': 'foobar64',
+        'time': 'about 11 minutes ago'
       }
-    });
+    }
   });
 });
 
@@ -106,12 +114,17 @@ app.use('/dining_commons', require('./routes/dining-common-routes'));
 
 app.get('/about', (req, res) => {
   var user = req.session.user;
+  var list_dcs = req.session.commons;
 
-  res.render('about', {user: user});
+  res.render('about', {
+    user: user,
+    list_dcs: list_dcs
+  });
 });
 
 app.get(['/','/mockups'], (req, res) => {
   var user = req.session.user;
+  var list_dcs = req.session.commons;
 
   if(req.query.mockup){
     var mockup = req.query.mockup + '_mockup.png';
@@ -126,7 +139,8 @@ app.get(['/','/mockups'], (req, res) => {
       res.render('mockups', {
         mockup: mockup,
         text: text,
-        user: user
+        user: user,
+        list_dcs: list_dcs
       });
     }
   });

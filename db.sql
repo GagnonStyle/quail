@@ -40,7 +40,7 @@ create table reviews (
 	dcid integer,
 	uid integer,
 	time timestamp,
-	revdesc text,
+	body text,
 	primary key (rid)
 );
 

@@ -57,8 +57,11 @@
             {{#each dining_commons}}
             <a href="#close" title="Close" class="close">X</a>
             <h2>{{this.name}}</h2>
+
+            <form method="post" action="dining_commons/levelschange">
+
             <p>Update the traffic level:</p>
-            <select name='dining_commons' class='right_center' id="dc_select">
+            <select name='dining_commons' class='right_center' id="traffic_select" type="crowdedness" name="traffic" placeholder="Select traffic level">
 
                 <option value="" disabled="disabled" selected="selected">Select a traffic level</option>
                 <option value="1">1</option>
@@ -71,13 +74,11 @@
                 <option value="8">8</option>
                 <option value="9">9</option>
                 <option value="10">10</option>
-                {{!-- {{#each list_dcs}}
-                    <option value='{{this.dcid}}'>{{this.name}}</option>
-                {{/each}} --}}
             </select>
+
             <p>Update the noise level:</p>
-            <select name='dining_commons' class='right_center' id="dc_select">
-                <option value="" disabled="disabled" selected="selected">Select a traffic level</option>
+            <select name='dining_commons' class='right_center' id="crowd_select" type="noise_level" name="noiseLevel" placeholder="Select noise level">
+                <option value="" disabled="disabled" selected="selected">Select a noise level</option>
                    <option value="1">1</option>
                    <option value="2">2</option>
                    <option value="3">3</option>
@@ -88,14 +89,15 @@
                    <option value="8">8</option>
                    <option value="9">9</option>
                    <option value="10">10</option>
-              {{!--   {{#each list_dcs}}
-                    <option value='{{this.dcid}}'>{{this.name}}</option>
-                {{/each}} --}}
             </select>
+
             <br><br><br>
+
             <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default">Submit</button>
+            <button name="submit" type="submit" value="submit" class="btn btn-default">Submit</button>
             </div>
+
+            </form>
             {{/each}}
         </div>
     </div>

@@ -43,7 +43,7 @@ router.get('/new', (req, res) =>{
   var list_dcs = req.session.commons;
   var message = req.flash('new-dc');
 
-  if (user) {
+  if (!user) {
     req.flash('home', 'You must be logged in to create a DC');
     res.redirect('/home');
   } else {

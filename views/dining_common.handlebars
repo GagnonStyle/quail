@@ -50,6 +50,8 @@
                 autoOpen: false});
         });
     </script>
+
+
     <div id="openModal" class="modalDialog">
         <div>
             {{#each dining_commons}}
@@ -57,18 +59,43 @@
             <h2>{{this.name}}</h2>
             <p>Update the traffic level:</p>
             <select name='dining_commons' class='right_center' id="dc_select">
-                <option>Select a traffic level</option>
+
+                <option value="" disabled="disabled" selected="selected">Select a traffic level</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
                 {{!-- {{#each list_dcs}}
                     <option value='{{this.dcid}}'>{{this.name}}</option>
                 {{/each}} --}}
             </select>
             <p>Update the noise level:</p>
             <select name='dining_commons' class='right_center' id="dc_select">
-                <option>Select a noise level</option>
+                <option value="" disabled="disabled" selected="selected">Select a traffic level</option>
+                   <option value="1">1</option>
+                   <option value="2">2</option>
+                   <option value="3">3</option>
+                   <option value="4">4</option>
+                   <option value="5">5</option>
+                   <option value="6">6</option>
+                   <option value="7">7</option>
+                   <option value="8">8</option>
+                   <option value="9">9</option>
+                   <option value="10">10</option>
               {{!--   {{#each list_dcs}}
                     <option value='{{this.dcid}}'>{{this.name}}</option>
                 {{/each}} --}}
             </select>
+            <br><br><br>
+            <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default">Submit</button>
+            </div>
             {{/each}}
         </div>
     </div>

@@ -111,6 +111,7 @@ app.get('/home', (req, res) => {
 
 app.use('/users', require('./routes/user-routes'));
 app.use('/dining_commons', require('./routes/dining-common-routes'));
+//app.use('/reviews', require('./routes/review-routes'));
 
 app.get('/about', (req, res) => {
   var user = req.session.user;

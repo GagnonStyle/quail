@@ -38,4 +38,21 @@ router.get('/', (req, res) => {
   }
 });
 
+router.get('/new', (req, res) =>{
+  var user = req.session.user;
+  var list_dcs = req.session.commons;
+  var message = req.flash('new-dc');
+
+  if (user) {
+    req.flash('home', 'You must be logged in to create a DC');
+    res.redirect('/home');
+  } else {
+    res.render('new-dc', {
+      user: user,
+      message: message,
+      list_dcs: list_dcs
+    });
+  }
+});
+
 module.exports = router;

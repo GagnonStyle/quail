@@ -1,6 +1,7 @@
 var express = require('express');
 
 var model = require('../lib/dining_common');
+var reviews = require('../lib/review');
 
 var router = express.Router();
 
@@ -15,10 +16,13 @@ router.get('/', (req, res) => {
         req.flash('home', 'ERROR: ' + err);
         res.redirect('/home')
       } else {
-        res.render('dining_common', {
-          dining_commons: dcs,
-          list_dcs: list_dcs,
-          user: user
+        reviews.allForDc(req.query.dcid, function(err, revs){
+          res.render('dining_common', {
+            dining_commons: dcs,
+            list_dcs: list_dcs,
+            user: user,
+            reviews: revs
+          });
         });
       }
     });

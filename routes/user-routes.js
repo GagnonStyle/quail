@@ -24,20 +24,34 @@ router.get('/', (req, res) => {
         });
       }
     });
+  // } else {
+  //   model.all(function(err, users){
+  //     if(err){
+  //       req.flash('home', 'ERROR: ' + err);
+  //       res.redirect('/home')
+  //     } else {
+  //       res.render('team', {
+  //         members: users,
+  //         user: session_user,
+  //         list_dcs: list_dcs
+  //       });
+  //     }
+  //   });
   } else {
-    model.all(function(err, users){
+    model.allTeamMembers(function(err, teamMembers){
       if(err){
         req.flash('home', 'ERROR: ' + err);
         res.redirect('/home')
       } else {
         res.render('team', {
-          members: users,
+          members: teamMembers,
           user: session_user,
           list_dcs: list_dcs
         });
       }
     });
   }
+  
 });
 
 router.get('/logout', (req,res) => {

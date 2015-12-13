@@ -70,6 +70,29 @@
         </div>
     </div>
 
+    <div id="openModal" class="modalDialog">
+        <div>
+            {{#each dining_commons}}
+            <a href="#close" title="Close" class="close">X</a>
+            <h2>{{this.name}}</h2>
+            <p>Update the traffic level:</p>
+            <select name='dining_commons' class='right_center' id="dc_select">
+                <option>Select a traffic level</option>
+                {{!-- {{#each list_dcs}}
+                    <option value='{{this.dcid}}'>{{this.name}}</option>
+                {{/each}} --}}
+            </select>
+            <p>Update the noise level:</p>
+            <select name='dining_commons' class='right_center' id="dc_select">
+                <option>Select a noise level</option>
+              {{!--   {{#each list_dcs}}
+                    <option value='{{this.dcid}}'>{{this.name}}</option>
+                {{/each}} --}}
+            </select>
+            {{/each}}
+        </div>
+    </div>
+
     <div class='col-md-6'>
         <ul id='reviews' class='red_box'>
             <a class="yellow" href="/reviews/new">Create a Review</a>

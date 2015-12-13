@@ -28,6 +28,14 @@ function getDCs(req,res,next){
 }
 app.use(getDCs);
 
+var reviews = require('./lib/review');
+function getReviews(req,res,next){
+  reviews.all(function(err, reviews){
+    req.session.reviews = reviews;
+    next();
+  });
+}
+
 app.set('port', process.env.PORT || 3000);
 
 var view = handlebars.create({ defaultLayout: 'main' });
@@ -69,43 +77,17 @@ app.use(testmw);
 ///// User Defined Routes ////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-app.get('/home', (req, res) => {
+app.get('/home', getReviews, (req, res) => {
   var user = req.session.user;
   var list_dcs = req.session.commons;
+  var revs = req.session.reviews;
   var message = req.flash('home');
   res.render('home', {
     message: message,
     user: user,
     list_dcs: list_dcs,
     dining_commons: list_dcs,
-    foods: {
-      'pizza': 'Pizza',
-      'sushi': 'Sushi',
-      'chicken fingers': 'Chicken Fingers'
-    },
-    reviews: {
-      '1': {
-        'dc': 'Berkshire',
-        'title': 'OMG',
-        'text': 'Those were the best chicken fingers I\'ve probably ever had in my entire life. I am going to come back for this chicken fingers every day until I die or graduate.',
-        'user': 'omg123',
-        'time': 'a few seconds ago'
-      },
-      '2': {
-        'dc': 'Hampshire',
-        'title': 'So sushi. Such happy.',
-        'text': 'I just got six plates of sushi without having to wait for anyone.',
-        'user': 'sushi32king',
-        'time': 'about 6 minutes ago'
-      },
-      '3': {
-        'dc': 'Worcester',
-        'title': 'Nice morning tunes',
-        'text': 'Worcester has such chill music this morning. That trumpet guy is a BAMF.',
-        'user': 'foobar64',
-        'time': 'about 11 minutes ago'
-      }
-    }
+    reviews: revs
   });
 }); 
 

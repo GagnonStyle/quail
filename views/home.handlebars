@@ -7,20 +7,11 @@
   </select>
 </div>
 
-<div class='col-md-6'>
-  <select name='food' class='right_center'>
-    <option>Select a Food</option>
-    {{#each foods}}
-      <option value='{{this}}'>{{this}}</option>
-    {{/each}}
-  </select>
-</div>
-
 <br>
 <br>
 
 <div class='col-md-6'>
-  <h3>Quick Info</h3>
+  <h3>Dining Commons</h3>
   <div class="red_box acc_info">
     <table id='quick_summaries'>
       {{#each dining_commons}}
@@ -40,13 +31,13 @@
 </div>
 
 <div id='trending' class='col-md-6'>
-  <h3>Trending</h3>
+  <h3>Recent Reviews</h3>
   <ul id='reviews' class='red_box'>
   {{#each reviews}}
     <li class='review'>
-      <h5 class='review_title'>{{this.dc}} Dining Commons</h5>
-      <p><em>"{{this.text}}"</em></p>
-      <h6 class='post_details'>{{this.user}} {{this.time}}</h6>
+      <h5 class='review_title'>{{this.name}} Dining Commons</h5>
+      <p><em>"{{this.body}}"</em></p>
+      <h6 class='post_details'>{{this.username}} - {{this.time}}</h6>
     </li>
   {{/each}}
   </ul>

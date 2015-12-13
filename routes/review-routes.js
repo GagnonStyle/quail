@@ -28,13 +28,13 @@ router.post('/create', (req, res) =>{
     res.redirect('/home');
   } else {
     var data = req.body;
-    model.add(data, user, function(err, dc) {
+    model.add(data, user, function(err, review) {
       if(err) {
-        req.flash('new-dc', 'Error: '+ err);
-        res.redirect('/dining_commons/new');
+        req.flash('dining_commons', 'Error: '+ err);
+        res.redirect('/dining_commons');
       } else {
         req.flash('dining_commons', 'Review Created');
-        res.redirect('/dining_commons');
+        res.redirect('/dining_commons?dcid=' + review.dcid);
       }
     });
   }

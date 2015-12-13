@@ -1,0 +1,12 @@
+<form method="post" action="/reviews/create">
+    Dining Common<br>
+    <select name='dcid'>
+        <option>Select a DC</option>
+        {{#each list_dcs}}
+            <option value='{{this.dcid}}'>{{this.name}}</option>
+        {{/each}}
+    </select><br>
+    Your Review:<br>
+    <textarea name="body" cols="40" placeholder="How was the food?" rows="5"></textarea><br>
+    <button>Submit Review</button>
+</form>

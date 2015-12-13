@@ -102,6 +102,6 @@ body{
     list-style-type: none;
 }
 
-.acc_info a {
+.acc_info a, a.yellow {
     color: #D7FF1A;
 }

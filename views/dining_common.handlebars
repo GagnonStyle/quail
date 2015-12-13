@@ -65,15 +65,15 @@
         </div>
     </div>
 
-    {{!-- reviews placeholder --}}
     <div class='col-md-6'>
-      <ul id='reviews' class='red_box'>
-        {{#each reviews}}
-            <li class='review'>
-                <p><em>"{{this.body}}"</em></p>
-                <h6 class='post_details'>{{this.username}} - {{this.time}}</h6>
-            </li>
-        {{/each}}
-      </ul>
+        <ul id='reviews' class='red_box'>
+            <a class="yellow" href="/reviews/new">Create a Review</a>
+            {{#each reviews}}
+                <li class='review'>
+                    <p><em>"{{this.body}}"</em></p>
+                    <h6 class='post_details'>{{this.username}} - {{this.time}}</h6>
+                </li>
+            {{/each}}
+        </ul>
     </div>
 </body>

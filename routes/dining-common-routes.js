@@ -9,6 +9,7 @@ router.get('/', (req, res) => {
   //grab user session
   var user = req.session.user;
   var list_dcs = req.session.commons;
+  var message = req.flash('dining_commons');
 
   if (req.query.dcid){
     model.one(req.query.dcid, function(err, dcs){
@@ -35,14 +36,15 @@ router.get('/', (req, res) => {
         res.render('dining_common', {
           dining_commons: dcs,
           list_dcs: list_dcs,
-          user: user
+          user: user,
+          message: message
         });
       }
     });
   }
 });
 
-router.get('/new', (req, res) =>{
+router.get('/new', (req, res) => {
   var user = req.session.user;
   var list_dcs = req.session.commons;
   var message = req.flash('new-dc');
@@ -55,6 +57,26 @@ router.get('/new', (req, res) =>{
       user: user,
       message: message,
       list_dcs: list_dcs
+    });
+  }
+});
+
+router.post('/create', (req, res) => {
+  if (!req.session.user) {
+    //  redirect if user is not logged in
+    req.flash('home', 'Error: Not logged in.');
+    res.redirect('/home');
+  } else {
+    //  create dining commons
+    var data = req.body;
+    model.addDC(data, function(err, dc) {
+      if(err) {
+        req.flash('new-dc', 'Error: '+err);
+        res.redirect('/dining_commons/new');
+      } else {
+        req.flash('dining_commons', 'Dining commons ' + dc + ' registered');
+        res.redirect('/dining_commons');
+      }
     });
   }
 });

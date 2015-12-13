@@ -38,7 +38,12 @@
                         <td colspan=4>
                             <a href="#openModal">Is this info wrong? click here to update it!</a>
                         </td>
-
+                            <script>
+                                $(function() {
+                                    $( "#openModal" ).dialog({
+                                        autoOpen: false});
+                                });
+                            </script>
                             <div id="openModal" class="modalDialog">
                                 <div>
                                     <a href="#close" title="Close" class="close">X</a>

@@ -38,16 +38,6 @@
                         <li><a id="home_link" href="/home">Home</a></li>
                         <li><a id="about_link" href="/about">About</a></li>
                         <li class="dropdown">
-                            <a id="mockups_link" href="/mockups" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mockups<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="/mockups?mockup=admin">Admin</a></li>
-                                <li><a href="/mockups?mockup=home">Home</a></li>
-                                <li><a href="/mockups?mockup=login_or_signup">Login or Signup</a></li>
-                                <li><a href="/mockups?mockup=user_profile">User Profile</a></li>
-                                <li><a href="/mockups?mockup=dining_hall_food_selection">Dining Hall</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
                             <a id="dining_commons_link" href="/dining_commons" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dining Commons<span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 {{#each list_dcs}}
@@ -56,7 +46,6 @@
                                 <li><a href="/dining_commons/new">New Dining Common</a></li>
                             </ul>
                         </li>
-                        <li><a id="users_link" href="/users">The Team</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         {{#if user}}
@@ -97,6 +86,7 @@
                         <ul class="nav navbar-nav">
                             <li><a href="https://github.com/GagnonStyle/quail">Project Github</a></li>
                             <li><a href="http://umass-cs-326.github.io/">Class Page</a></li>
+                            <li><a id="users_link" href="/users">The Team</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             <img class="navbar-brand" src="/img/ufood_header_logo_black.png" alt="U-FOOD"/>

@@ -3,7 +3,7 @@ CS326: Web Development (Starring Tim Richards)
 
 ![U-Food](https://github.com/GagnonStyle/quail/blob/master/public/img/ufood_header_logo_black.png "U-Food Logo")
 
-### Creators
+## Creators
 * Jeffrey Amirault
 * Spencer Gagnon
 * George Larionov
@@ -11,12 +11,27 @@ CS326: Web Development (Starring Tim Richards)
 * Noel Recchia
 * David Whitaker
 
+## Final Project Document
+
+**[Link](https://docs.google.com/document/d/1Ehoej8pnyUPLjHSxAra1yDd-2c85PFB3EqXf6-fKKc4)**
+
 ## Overview
 
 Out of the many different ideas that our team came up with, we are excited to create one on a subject that we all like, eating food on campus. U-Food encompasses the idea of a dining commons tracker, with information that is presented to be a UMass food guide. Included are options for showing lines and wait times for getting into the dining common, or for specific foods such as stir fry or sushi. A section of U-Food will include the day’s menu for all dining commons. There will be options to “check-in” at the dining commons, and also provide location services, such as where each dining common is located.
 
 U-Food will not only allow the user to interact with the information, but with other users as well. If applicable, users can submit their own food reviews and other users can comment on their reviews. Users can also ask questions and similarly, other users can answer those questions. Users can also report when a specific dining common runs out of food, such as the popular pizza, or corn beef hash. Custom events at the dining commons can be added and edited with times and locations. U-Food will also include the twitter for umass dining services, similar to the ones shown on the televisions at their respective dining commons. Overall, U-Food aims to simplify and enhance the UMass dining experience.
 
+## Current State
+
+|Feature|Status|
+|:-------:|:------:|
+|User Authentication|Completed|
+|Database Implementation|Completed|
+|Data Entry|Completed|
+|User Reviews|Completed|
+|Front-end Design|Completed|
+|UMass Dining Menu Crawler|Proposed|
+|Calendar Widget|Proposed|
 
 ## How To Run
 
@@ -32,6 +47,7 @@ U-Food will not only allow the user to interact with the information, but with o
 * **[Express:](https://github.com/expressjs/expressjs.github.io)** Node.js web application framework (middleware) suitable for our needs. It is used for creating sessions, parsing bodies, populate cookies, and implementing flash messages.
 * **[Handlebars.js:](https://github.com/wycats/handlebars.js)** Handlebars.js is an extension of Mustache templating language which keeps the views and code separated for rendering.
 * **[PostgreSQL:](https://github.com/postgres/postgres)** This advanced object-relational database management system will be useful for our databases.
+* **[Bootstrap:](http://getbootstrap.com/)** Bootstrap is a front-end framework used which adds features to HTML and CSS languages.
 
 ## Views
 
@@ -41,7 +57,7 @@ U-Food will not only allow the user to interact with the information, but with o
 * **Signup:** The "signup" page shows the guest a number of fillable fields to enter credentials. Names, usernames, passwords, and descriptions are available fields the guest can type in. These credentials then get saved into the user database.
 * **Team:** The "team" page displays all of the team member information which is grabbed from the user database.
 * **Mockups:** The "mockups" view presents guests and users the initial mockups that were created by the U-Food team. This view may be removed in the future when the web application reaches closer to a usable, working state.
-* **User Profile:** The "user profile" view appears when a user clicks on their username on the header after they log in. This page showcases a few statistics on the user and their activity on U-Food. A few account options such as changing passwords are avaiable in this view.
+* **User Profile:** The "user profile" view appears when a user clicks on their username on the header after they log in. This page showcases a few statistics on the user and their activity on U-Food. A few account options such as changing passwords are available in this view.
 * **Change Password:** This view appears when a user clicks on the change password link on the "user profile" view. A field requiring the current password as well as fields for the new passwords appear here.
 * **Error 404 & 500:** Oh dear. You broke U-Food. Please contact the team members. (This view is pretty self-explanitory.)
 

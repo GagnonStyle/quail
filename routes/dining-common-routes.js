@@ -62,7 +62,7 @@ router.get('/new', (req, res) => {
 });
 
 router.post('/create', (req, res) => {
-  var user = req.session,user;
+  var user = req.session.user;
   if (!user) {
     //  redirect if user is not logged in
     req.flash('home', 'Error: Not logged in.');

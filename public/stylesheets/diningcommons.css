@@ -1,7 +1,7 @@
 .modalDialog {
     position: fixed;
     font-family: Arial, Helvetica, sans-serif;
-    color: black;
+    color: white;
     top: 0;
     right: 0;
     bottom: 0;
@@ -21,7 +21,6 @@
 
 .modalDialog > div {
     width: 400px;
-    /*height: 250px;*/
     position: relative;
     margin: 10% auto;
     padding: 5px 20px 13px 20px;
@@ -52,8 +51,8 @@
     opacity:1;
     }
 .close:hover {
-    background: #00d9ff;
     opacity:1;
+    background: #B80000;
 }
 .right_center{
     color: black;
@@ -61,6 +60,6 @@
 .btn-group{
     float: right;
 }
-.option {
+select {
     color: black;
 }

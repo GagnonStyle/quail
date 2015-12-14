@@ -105,7 +105,21 @@ app.get('/about', (req, res) => {
   });
 });
 
-app.get(['/','/mockups'], (req, res) => {
+app.get(['/', 'home'], getReviews, (req, res) => {
+  var user = req.session.user;
+  var list_dcs = req.session.commons;
+  var revs = req.session.reviews;
+  var message = req.flash('home');
+  res.render('home', {
+    message: message,
+    user: user,
+    list_dcs: list_dcs,
+    dining_commons: list_dcs,
+    reviews: revs
+  });
+});
+
+app.get('/mockups', (req, res) => {
   var user = req.session.user;
   var list_dcs = req.session.commons;
 

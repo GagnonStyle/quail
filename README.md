@@ -13,7 +13,7 @@ CS326: Web Development (Starring Tim Richards)
 
 ## Final Project Document
 
-**[Link](https://docs.google.com/document/d/1Ehoej8pnyUPLjHSxAra1yDd-2c85PFB3EqXf6-fKKc4)**
+**[Link](https://docs.google.com/document/d/1Ehoej8pnyUPLjHSxAra1yDd-2c85PFB3EqXf6-fKKc4/edit?usp=sharing)**
 
 ## Overview
 

@@ -6,7 +6,9 @@ $(document).ready(function(){
     queryHash[q[0]] = q[1];
   }
   if(queryHash['dcid']){
-    $('#dc_select').val(queryHash['dcid']);
+    $('#dc_select').val(queryHash['dcid'].split('#')[0]);
+    $('#noise_select').val(Number($('.noise').html()));
+    $('#traffic_select').val(Number($('.traffic').html()));
   }
   $('#dc_select').change(function(){
     var dcid = $(this).find(':selected').val();
@@ -16,7 +18,6 @@ $(document).ready(function(){
       window.location.href = '/dining_commons?dcid=' + dcid;
     }
   });
-
 
 
 });

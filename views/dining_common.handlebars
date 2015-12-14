@@ -26,8 +26,8 @@
                         <td>Location - {{this.location}}</td>
                     </tr>
                     <tr>
-                        <td>Traffic - {{this.crowdedness}}</td>
-                        <td>Noise - {{this.noise_level}}</td>
+                        <td>Traffic - <span class="traffic">{{this.crowdedness}}</span></td>
+                        <td>Noise - <span class="noise">{{this.noise_level}}</span></td>
                     </tr>
                     <tr>
                         <td colspan=4>&nbsp;</td>
@@ -47,7 +47,7 @@
 
     <script>
         $(function() {
-            $( "#openModal" ).dialog({
+            $("#openModal").dialog({
                 autoOpen: false});
         });
     </script>
@@ -61,7 +61,6 @@
 
                 <p>Update the traffic level:</p>
                 <select class='right_center' id="traffic_select" type="crowdedness" name="trafficLevel" placeholder="Select traffic level">
-                    <option value="" disabled="disabled" selected="selected">Select a traffic level</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -76,18 +75,17 @@
 
 
                 <p>Update the noise level:</p>
-                <select class='right_center' id="crowd_select" type="noise_level" name="noiseLevel" placeholder="Select noise level">
-                    <option value="" disabled="disabled" selected="selected">Select a noise level</option>
-                       <option value="1">1</option>
-                       <option value="2">2</option>
-                       <option value="3">3</option>
-                       <option value="4">4</option>
-                       <option value="5">5</option>
-                       <option value="6">6</option>
-                       <option value="7">7</option>
-                       <option value="8">8</option>
-                       <option value="9">9</option>
-                       <option value="10">10</option>
+                <select class='right_center' id="noise_select" type="noise_level" name="noiseLevel" placeholder="Select noise level">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
                 </select><br>
                 <button type="submit" class="btn btn-default">Submit</button>
                 </form>

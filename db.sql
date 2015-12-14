@@ -30,11 +30,11 @@ create table dining_commons (
  primary key (dcid)
 );
 
-insert into dining_commons values (default, 'Worcester', 'Northeast', 0, 0);
-insert into dining_commons values (default, 'Franklin', 'Central', 0, 0);
-insert into dining_commons values (default, 'Hampshire', 'Southwest', 0, 0);
-insert into dining_commons values (default, 'Berkshire', 'Southwest', 0, 0);
-insert into dining_commons values (default, 'Blue Wall', 'Campus Center', 0, 0);
+insert into dining_commons values (default, 'Worcester', 'Northeast', 1, 1);
+insert into dining_commons values (default, 'Franklin', 'Central', 1, 1);
+insert into dining_commons values (default, 'Hampshire', 'Southwest', 1, 1);
+insert into dining_commons values (default, 'Berkshire', 'Southwest', 1, 1);
+insert into dining_commons values (default, 'Blue Wall', 'Campus Center', 1, 1);
 
 create table reviews (
 	rid serial,

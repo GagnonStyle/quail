@@ -16,6 +16,7 @@
 		<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="/javascripts/dining_common.js"></script>
+        <script type="text/javascript" src="/javascripts/nav.js"></script>
 
         <link rel="stylesheet" href="/stylesheets/main.css" type="text/css">
         <link rel="icon" type="image/x-icon"href="/img/favicon.ico" />
@@ -33,11 +34,11 @@
                     <img class="navbar-brand" src="/img/ufood_header_logo_white.png" alt="U-FOOD"/>
                 </div>
                 <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a href="/home">Home</a></li>
-                        <li><a href="/about">About</a></li>
+                    <ul id="primary_nav" class="nav navbar-nav">
+                        <li><a id="home_link" href="/home">Home</a></li>
+                        <li><a id="about_link" href="/about">About</a></li>
                         <li class="dropdown">
-                            <a href="/mockups" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mockups<span class="caret"></span></a>
+                            <a id="mockups_link" href="/mockups" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mockups<span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="/mockups?mockup=admin">Admin</a></li>
                                 <li><a href="/mockups?mockup=home">Home</a></li>
@@ -47,7 +48,7 @@
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a href="/dining_commons" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dining Commons<span class="caret"></span></a>
+                            <a id="dining_commons_link" href="/dining_commons" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dining Commons<span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 {{#each list_dcs}}
                                     <li><a href="/dining_commons?dcid={{this.dcid}}">{{this.name}}</a></li>
@@ -55,14 +56,14 @@
                                 <li><a href="/dining_commons/new">New Dining Common</a></li>
                             </ul>
                         </li>
-                        <li><a href="/users">The Team</a></li>
+                        <li><a id="users_link" href="/users">The Team</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         {{#if user}}
-                            <li><a href="/users/profile">{{user.firstname}} {{user.lastname}}</a></li>
+                            <li><a id="profile_link" href="/users/profile">{{user.firstname}} {{user.lastname}}</a></li>
                             <li><a href="/users/logout">Log Out</a></li>
                         {{else}}
-                            <li><a href="/users/login">Log In or Sign Up</a></li>
+                            <li><a id="login_link" href="/users/login">Log In or Sign Up</a></li>
                         {{/if}}
                     </ul>
                 </div><!--/.nav-collapse -->

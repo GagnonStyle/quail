@@ -58,6 +58,9 @@ body{
 .navbar-nav>li>a {
     color: white;
 }
+.navbar-nav>li>a.selected {
+    background: #A92323;
+}
 .nav>li>a:hover,
 .nav>li>a:focus {
     background-color: #c92929;

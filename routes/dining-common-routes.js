@@ -66,6 +66,10 @@ router.post('/create', (req, res) => {
     //  redirect if user is not logged in
     req.flash('home', 'Error: Not logged in.');
     res.redirect('/home');
+  } else if (!user.admin) {
+    //  redirect if user is not admin
+    req.flash('home', 'Error: Only an admin can do that.');
+    res.redirect('/home');
   } else {
     //  create dining commons
     var data = req.body;

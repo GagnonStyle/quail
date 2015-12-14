@@ -1,7 +1,7 @@
 .modalDialog {
     position: fixed;
     font-family: Arial, Helvetica, sans-serif;
-    color: white;
+    color: black;
     top: 0;
     right: 0;
     bottom: 0;
@@ -21,7 +21,7 @@
 
 .modalDialog > div {
     width: 400px;
-    height: 250px;
+    /*height: 250px;*/
     position: relative;
     margin: 10% auto;
     padding: 5px 20px 13px 20px;
@@ -60,4 +60,7 @@
 }
 .btn-group{
     float: right;
+}
+.option {
+    color: black;
 }

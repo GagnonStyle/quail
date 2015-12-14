@@ -83,46 +83,31 @@ router.post('/create', (req, res) => {
 
 
 // THIS WILL BE USED TO UPDATE THE NOISE + TRAFFIC LEVEL
-router.post('/levelschange', (req,res) => {
+router.post('/levelchange', (req,res) => {
   // Grab the session if the user is logged in.
   var user = req.session.user;
 
   // Change levels if user is online:
-  // if (user && online[user.username])
-  // {
-    var newTrafficLevel = req.body.traffic;
-    var newNoiseLevel = req.body.noiseLevel;
-    // var dc = dcid;
-
-    // selections must be valid
-    if (!newNoiseLevel || !newTrafficLevel)
-    {
-      req.flash('dining-common', 'Selections are not valid');
-      res.redirect('/dining_commons');
-    }
-    // all good
-    else {
-      model.changeLevels(newNoiseLevel, newTrafficLevel, function(err, user) {
-        if(err)
-        {
-          req.flash('dining-common', 'Error: '+err);
-          res.redirect('/dining_commons');
-        }
-        // if successfull
-        else
-        {
-          req.flash('dining-common', "Levels changed successfully");
-          res.redirect('/dining_commons');
-        }
-      });
-    }
-  // }
-  // need to be logged in to change password
-  // else
-  // {
-  //   req.flash('login', "Please log in to change your password:");
-  //   res.redirect('/users/login');
-  // }
+  if (!user) {
+    req.flash('login', "Please log in to change your password:");
+    res.redirect('/users/login');
+  }
+  else {
+    var data = req.body;
+    model.changeLevels(data, function(err, user) {
+      if(err)
+      {
+        req.flash('dining-common', 'Error: '+err);
+        res.redirect('/dining_commons');
+      }
+      // if successfull
+      else
+      {
+        req.flash('dining-common', "Traffic level changed successfully");
+        res.redirect('/dining_commons');
+      }
+    });
+  }
 });
 
 module.exports = router;

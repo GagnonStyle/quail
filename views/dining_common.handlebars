@@ -54,15 +54,18 @@
 
     <div id="openModal" class="modalDialog">
         <div>
-            {{#each dining_commons}}
             <a href="#close" title="Close" class="close">X</a>
-            <h2>{{this.name}}</h2>
-
-            <form method="post" action="dining_commons/levelschange">
+            <form method="post" action="dining_commons/levelchange">
+                Select Dining Common:<br>
+                <select name='dcid'>
+                    <option>Select a DC</option>
+                    {{#each list_dcs}}
+                        <option value='{{this.dcid}}'>{{this.name}}</option>
+                    {{/each}}
+                </select><br>
 
             <p>Update the traffic level:</p>
-            <select name='dining_commons' class='right_center' id="traffic_select" type="crowdedness" name="traffic" placeholder="Select traffic level">
-
+            <select class='right_center' id="traffic_select" type="crowdedness" name="trafficLevel" placeholder="Select traffic level">
                 <option value="" disabled="disabled" selected="selected">Select a traffic level</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -76,8 +79,9 @@
                 <option value="10">10</option>
             </select>
 
+
             <p>Update the noise level:</p>
-            <select name='dining_commons' class='right_center' id="crowd_select" type="noise_level" name="noiseLevel" placeholder="Select noise level">
+            <select class='right_center' id="crowd_select" type="noise_level" name="noiseLevel" placeholder="Select noise level">
                 <option value="" disabled="disabled" selected="selected">Select a noise level</option>
                    <option value="1">1</option>
                    <option value="2">2</option>
@@ -89,16 +93,9 @@
                    <option value="8">8</option>
                    <option value="9">9</option>
                    <option value="10">10</option>
-            </select>
-
-            <br><br><br>
-
-            <div class="btn-group" role="group">
-            <button name="submit" type="submit" value="submit" class="btn btn-default">Submit</button>
-            </div>
-
+            </select><br>
+            <button>Submit</button>
             </form>
-            {{/each}}
         </div>
     </div>
 

@@ -32,14 +32,15 @@
                     <tr>
                         <td colspan=4>&nbsp;</td>
                     </tr>
-
-                    {{!-- MODAL BOX FOR CHANGING NOISE AND TRAFFIC --}}
+                {{/each}}
+                {{!-- MODAL BOX FOR CHANGING NOISE AND TRAFFIC --}}
+                {{#if show_modal}}
                     <tr>
                         <td colspan=4>
                             <a href="#openModal">Is this info wrong? click here to update it!</a>
                         </td>
                     </tr>
-                {{/each}}
+                {{/if}}
             </table>
         </div>
     </div>
@@ -50,54 +51,49 @@
                 autoOpen: false});
         });
     </script>
+    {{#if show_modal}}
+        <div id="openModal" class="modalDialog">
+            <div>
+                <a href="#close" title="Close" class="close">X</a>
+                <form method="post" action="dining_commons/levelchange">
+                <input name='dcid' type='hidden' value='{{dcid}}'>
 
 
-    <div id="openModal" class="modalDialog">
-        <div>
-            <a href="#close" title="Close" class="close">X</a>
-            <form method="post" action="dining_commons/levelchange">
-                Select Dining Common:<br>
-                <select name='dcid'>
-                    <option>Select a DC</option>
-                    {{#each list_dcs}}
-                        <option value='{{this.dcid}}'>{{this.name}}</option>
-                    {{/each}}
+                <p>Update the traffic level:</p>
+                <select class='right_center' id="traffic_select" type="crowdedness" name="trafficLevel" placeholder="Select traffic level">
+                    <option value="" disabled="disabled" selected="selected">Select a traffic level</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+
+
+                <p>Update the noise level:</p>
+                <select class='right_center' id="crowd_select" type="noise_level" name="noiseLevel" placeholder="Select noise level">
+                    <option value="" disabled="disabled" selected="selected">Select a noise level</option>
+                       <option value="1">1</option>
+                       <option value="2">2</option>
+                       <option value="3">3</option>
+                       <option value="4">4</option>
+                       <option value="5">5</option>
+                       <option value="6">6</option>
+                       <option value="7">7</option>
+                       <option value="8">8</option>
+                       <option value="9">9</option>
+                       <option value="10">10</option>
                 </select><br>
-
-            <p>Update the traffic level:</p>
-            <select class='right_center' id="traffic_select" type="crowdedness" name="trafficLevel" placeholder="Select traffic level">
-                <option value="" disabled="disabled" selected="selected">Select a traffic level</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-            </select>
-
-
-            <p>Update the noise level:</p>
-            <select class='right_center' id="crowd_select" type="noise_level" name="noiseLevel" placeholder="Select noise level">
-                <option value="" disabled="disabled" selected="selected">Select a noise level</option>
-                   <option value="1">1</option>
-                   <option value="2">2</option>
-                   <option value="3">3</option>
-                   <option value="4">4</option>
-                   <option value="5">5</option>
-                   <option value="6">6</option>
-                   <option value="7">7</option>
-                   <option value="8">8</option>
-                   <option value="9">9</option>
-                   <option value="10">10</option>
-            </select><br>
-            <button type="submit" class="btn btn-default">Submit</button>
-            </form>
+                <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+            </div>
         </div>
-    </div>
+    {{/if}}
 
     <div class='col-md-6'>
         <ul id='reviews' class='red_box'>

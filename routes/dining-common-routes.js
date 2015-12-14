@@ -22,7 +22,9 @@ router.get('/', (req, res) => {
             dining_commons: dcs,
             list_dcs: list_dcs,
             user: user,
-            reviews: revs
+            reviews: revs,
+            show_modal: true,
+            dcid: dcs[0].dcid
           });
         });
       }
@@ -89,30 +91,21 @@ router.post('/create', (req, res) => {
 
 // THIS WILL BE USED TO UPDATE THE NOISE + TRAFFIC LEVEL
 router.post('/levelchange', (req,res) => {
-  // Grab the session if the user is logged in.
-  var user = req.session.user;
 
-  // Change levels if user is online:
-  if (!user) {
-    req.flash('login', "Please log in to change your password:");
-    res.redirect('/users/login');
-  }
-  else {
-    var data = req.body;
-    model.changeLevels(data, function(err, user) {
-      if(err)
-      {
-        req.flash('dining-common', 'Error: '+err);
-        res.redirect('/dining_commons');
-      }
-      // if successfull
-      else
-      {
-        req.flash('dining-common', "Traffic level changed successfully");
-        res.redirect('/dining_commons');
-      }
-    });
-  }
+  var data = req.body;
+  model.changeLevels(data, function(err, user) {
+    if(err)
+    {
+      req.flash('dining-common', 'Error: '+err);
+      res.redirect('/dining_commons');
+    }
+    // if successfull
+    else
+    {
+      req.flash('dining-common', "Traffic level changed successfully");
+      res.redirect('/dining_commons?dcid=' + data.dcid);
+    }
+  });
 });
 
 module.exports = router;

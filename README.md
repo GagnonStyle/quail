@@ -11,9 +11,12 @@ CS326: Web Development (Starring Tim Richards)
 * Noel Recchia
 * David Whitaker
 
-## Final Project Document
+## Final Project Document & Videos
 
-**[Link](https://docs.google.com/document/d/1Ehoej8pnyUPLjHSxAra1yDd-2c85PFB3EqXf6-fKKc4/edit?usp=sharing)**
+* **[Final Document](https://docs.google.com/document/d/1Ehoej8pnyUPLjHSxAra1yDd-2c85PFB3EqXf6-fKKc4/edit?usp=sharing)**
+* **[Presentation Video]()**
+* **[Source Code Tutorial]()**
+* **[Web Application Walkthrough]()**
 
 ## Overview
 

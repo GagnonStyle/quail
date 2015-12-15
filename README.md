@@ -14,9 +14,9 @@ CS326: Web Development (Starring Tim Richards)
 ## Final Project Document & Videos
 
 * **[Final Document](https://docs.google.com/document/d/1Ehoej8pnyUPLjHSxAra1yDd-2c85PFB3EqXf6-fKKc4/edit?usp=sharing)**
-* **[Presentation Video]()**
-* **[Source Code Tutorial]()**
-* **[Web Application Walkthrough]()**
+* **[Presentation Video](https://www.youtube.com/watch?v=ysQJ2lWQulM)**
+* **[Source Code Tutorial](https://www.youtube.com/watch?v=MKDcLOvez1w)**
+* **[Web Application Walkthrough](https://www.youtube.com/watch?v=FOPeTAaJLNc)**
 
 ## Overview
 
